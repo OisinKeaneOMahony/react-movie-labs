@@ -5,9 +5,13 @@ import { MoviesContext } from "../../contexts/moviesContext";
 
 const AddToPlaylistIcon = ({ movie }) => {
     const context = useContext(MoviesContext);
+    const handleAddWatchlist = (e) => {
+        e.preventDefault();
+        context.AddToWatchlist(movie);
+    };
 
     return(
-        <IconButton aria-label="add to watchlist">
+        <IconButton aria-label="add to watchlist" onClick={handleAddWatchlist}>
             <PlaylistAddIcon color="primary" fontSize="large" />
         </IconButton>
     );
